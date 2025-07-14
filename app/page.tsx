@@ -11,9 +11,10 @@ import {
   ShoppingCart,
   Star,
   Users,
-  BookOpen,
+  Container,
   Calculator,
-  Ruler
+  Ruler,
+  BookOpen
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -83,8 +84,8 @@ const categories = [
     image: "/placeholder.svg?height=200&width=300"
   },
   {
-    name: "Libros y Manuales",
-    icon: BookOpen,
+    name: "Box de Atención",
+    icon: Container,
     count: 32,
     image: "/placeholder.svg?height=200&width=300"
   }
