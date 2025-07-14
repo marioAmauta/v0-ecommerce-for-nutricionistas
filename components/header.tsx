@@ -45,17 +45,11 @@ export default function Header() {
 
           {/* Search Bar */}
           <div className="hidden md:flex flex-1 max-w-lg mx-8">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <Input
-                placeholder="Buscar equipos, cursos, plantillas..."
-                className="pl-10 pr-4"
-              />
-            </div>
+            <SearchInput />
           </div>
 
           {/* Actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <Button variant="ghost" size="icon" className="hidden md:flex">
               <Heart className="h-5 w-5" />
             </Button>
@@ -95,6 +89,11 @@ export default function Header() {
             </Sheet>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Search Bar */}
+      <div className="md:hidden max-w-lg mx-auto px-4 py-2">
+        <SearchInput />
       </div>
 
       {/* Navigation */}
@@ -155,6 +154,18 @@ function NavigationMenu({ className }: { className?: string }) {
           <DropdownMenuItem>Protocolos de Evaluación</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+    </div>
+  );
+}
+
+function SearchInput() {
+  return (
+    <div className="relative w-full">
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+      <Input
+        placeholder="Buscar equipos, cursos, plantillas..."
+        className="pl-10 pr-4"
+      />
     </div>
   );
 }
