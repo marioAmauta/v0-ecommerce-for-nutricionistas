@@ -1,24 +1,38 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Ruler } from "lucide-react"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+  Ruler
+} from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Newsletter Section */}
-      <div className="bg-green-600 py-12">
+      <div className="bg-color1 py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4">Mantente Actualizado</h3>
             <p className="mb-6 max-w-2xl mx-auto">
-              Recibe las últimas novedades en equipos nutricionales, nuevos cursos ISAK y recursos profesionales
-              directamente en tu email.
+              Recibe las últimas novedades en equipos nutricionales, nuevos
+              cursos ISAK y recursos profesionales directamente en tu email.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input placeholder="Tu email profesional" className="bg-white text-gray-900" />
-              <Button className="bg-gray-900 hover:bg-gray-800 text-white">Suscribirse</Button>
+              <Input
+                placeholder="Tu email profesional"
+                className="bg-white text-gray-900"
+              />
+              <Button className="bg-gray-900 hover:bg-gray-800 text-white">
+                Suscribirse
+              </Button>
             </div>
           </div>
         </div>
@@ -31,29 +45,44 @@ export default function Footer() {
             {/* Company Info */}
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="bg-green-600 text-white p-2 rounded-lg">
+                <div className="bg-color1 text-white p-2 rounded-lg">
                   <Ruler className="h-6 w-6" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold">NutriStore</h2>
-                  <p className="text-sm text-gray-400">Equipos para Nutricionistas</p>
+                  <h2 className="text-xl font-bold">NutriData</h2>
                 </div>
               </div>
               <p className="text-gray-400 mb-4">
-                Tu tienda especializada en equipos de medición antropométrica, cursos ISAK y recursos profesionales para
-                nutricionistas.
+                Tu tienda especializada en equipos de medición antropométrica,
+                cursos ISAK y recursos profesionales para nutricionistas.
               </p>
               <div className="flex space-x-4">
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white"
+                >
                   <Facebook className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white"
+                >
                   <Instagram className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white"
+                >
                   <Twitter className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white"
+                >
                   <Youtube className="h-5 w-5" />
                 </Button>
               </div>
@@ -138,16 +167,18 @@ export default function Footer() {
               <h3 className="text-lg font-semibold mb-4">Contacto</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-green-600" />
+                  <Phone className="h-5 w-5 text-color1" />
                   <span className="text-gray-400">+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-400">info@nutristore.com</span>
+                  <Mail className="h-5 w-5 text-color1" />
+                  <span className="text-gray-400">info@nutridata.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-400">123 Health St, Medical District</span>
+                  <MapPin className="h-5 w-5 text-color1" />
+                  <span className="text-gray-400">
+                    123 Health St, Medical District
+                  </span>
                 </div>
               </div>
 
@@ -173,7 +204,9 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-              <p className="text-gray-400 text-sm">© 2024 NutriStore. Todos los derechos reservados.</p>
+              <p className="text-gray-400 text-sm">
+                © 2024 NutriData. Todos los derechos reservados.
+              </p>
               <div className="flex space-x-4 text-sm">
                 <Link href="#" className="text-gray-400 hover:text-white">
                   Términos y Condiciones
@@ -204,5 +237,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
