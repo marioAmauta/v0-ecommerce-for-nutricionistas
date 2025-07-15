@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -121,13 +121,19 @@ export default function HomePage() {
                   Ver Catálogo
                   <ShoppingCart className="ml-2 h-5 w-5" />
                 </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-white text-color1 border-color1 hover:bg-color5"
+                <Link
+                  href="/iniciar-sesion"
+                  className={cn(
+                    buttonVariants({
+                      size: "lg",
+                      variant: "outline",
+                      className:
+                        "bg-white text-color1 border-color1 hover:bg-color5"
+                    })
+                  )}
                 >
-                  Cursos ISAK
-                </Button>
+                  Inicia Sesión
+                </Link>
               </div>
             </div>
             <div className="relative">

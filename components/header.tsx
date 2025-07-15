@@ -20,10 +20,12 @@ import {
   Ruler,
   Users,
   Calculator,
-  BookOpen
+  BookOpen,
+  Container
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { BrandLogo } from "./brand-logo";
 
 export default function Header() {
   const [cartItems, setCartItems] = useState(3);
@@ -34,14 +36,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-color1 text-white p-2 rounded-lg">
-              <Ruler className="h-6 w-6" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">NutriData</h1>
-            </div>
-          </Link>
+          <BrandLogo />
 
           {/* Search Bar */}
           <div className="hidden md:flex flex-1 max-w-lg mx-8">
@@ -128,8 +123,8 @@ function NavigationMenu({ className }: { className?: string }) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="flex items-center">
-            <Users className="mr-2 h-4 w-4" />
-            Cursos ISAK
+            <Container className="mr-2 h-4 w-4" />
+            Box de atención
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

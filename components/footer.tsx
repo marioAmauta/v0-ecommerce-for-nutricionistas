@@ -12,6 +12,7 @@ import {
   MapPin,
   Ruler
 } from "lucide-react";
+import { BrandLogo } from "./brand-logo";
 
 export default function Footer() {
   return (
@@ -44,13 +45,8 @@ export default function Footer() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="bg-color1 text-white p-2 rounded-lg">
-                  <Ruler className="h-6 w-6" />
-                </div>
-                <div>
-                  <h2 className="text-xl font-bold">NutriData</h2>
-                </div>
+              <div className="-ml-5">
+                <BrandLogo textClassName="text-white" />
               </div>
               <p className="text-gray-400 mb-4">
                 Tu tienda especializada en equipos de medición antropométrica,
