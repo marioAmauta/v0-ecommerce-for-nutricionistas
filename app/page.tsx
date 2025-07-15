@@ -18,14 +18,15 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const featuredProducts = [
   {
     id: 1,
-    name: "Caliper Harpenden Premium",
-    price: 299.99,
+    name: "Caliper Harpenden",
+    price: 1290000,
     originalPrice: 349.99,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/Plicometro HARPENDEN.jpg",
     rating: 4.8,
     reviews: 124,
     category: "Equipos de Medición",
@@ -33,20 +34,20 @@ const featuredProducts = [
   },
   {
     id: 2,
-    name: "Curso ISAK Nivel 1 Certificado",
-    price: 450.0,
-    image: "/placeholder.svg?height=300&width=300",
+    name: "Balanza Mecánica",
+    price: 599990,
+    image: "Balanza mecanica.png",
     rating: 4.9,
     reviews: 89,
-    category: "Cursos",
+    category: "Equipos de Medición",
     badge: "Nuevo"
   },
   {
     id: 3,
-    name: "Balanza Pediátrica Digital",
-    price: 189.99,
+    name: "Balanza Pediátrica Mecánica",
+    price: 399990,
     originalPrice: 229.99,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "Balanza pediatrica.jpg",
     rating: 4.7,
     reviews: 67,
     category: "Equipos de Medición",
@@ -54,13 +55,13 @@ const featuredProducts = [
   },
   {
     id: 4,
-    name: "Pack Plantillas de Minutas Premium",
-    price: 29.99,
-    image: "/placeholder.svg?height=300&width=300",
+    name: "Cinta métrica Lufkin",
+    price: 27990,
+    image: "Cinta metrica Lufkin.webp",
     rating: 4.6,
     reviews: 203,
-    category: "Recursos Digitales",
-    badge: "Digital"
+    category: "Equipos de Medición",
+    badge: "Oferta"
   }
 ];
 
@@ -69,25 +70,33 @@ const categories = [
     name: "Equipos de Medición",
     icon: Ruler,
     count: 24,
-    image: "/placeholder.svg?height=200&width=300"
+    countText: "24 productos",
+    image: "equipos medicion.jpg",
+    url: "/categoria/equipos-de-medicion"
   },
   {
-    name: "Cursos ISAK",
+    name: "Comunidad Nutricional",
     icon: Users,
-    count: 8,
-    image: "/placeholder.svg?height=200&width=300"
+    count: 5000,
+    countText: "5000+ Miembros",
+    image: "comunidad nutricion.png",
+    url: "/categoria/cursos-isak"
   },
   {
     name: "Recursos Digitales",
     icon: Calculator,
     count: 45,
-    image: "/placeholder.svg?height=200&width=300"
+    countText: "45 recursos",
+    image: "recursos digitales.webp",
+    url: "/categoria/recursos-digitales"
   },
   {
     name: "Box de Atención",
     icon: Container,
     count: 32,
-    image: "/placeholder.svg?height=200&width=300"
+    countText: "32 boxes",
+    image: "box nutricional.jpg",
+    url: "/categoria/box-de-atencion"
   }
 ];
 
@@ -123,7 +132,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=500&width=600"
+                src="imagen principal.jpg"
                 alt="Nutricionista profesional"
                 width={600}
                 height={500}
@@ -148,12 +157,7 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((category, index) => (
-              <Link
-                key={index}
-                href={`/categoria/${category.name
-                  .toLowerCase()
-                  .replace(/\s+/g, "-")}`}
-              >
+              <Link key={index} href={category.url}>
                 <Card className="hover:shadow-lg transition-shadow cursor-pointer group h-full">
                   <CardContent className="p-6">
                     <div className="relative mb-4">
@@ -162,7 +166,12 @@ export default function HomePage() {
                         alt={category.name}
                         width={300}
                         height={200}
-                        className="rounded-lg w-full h-32 object-cover"
+                        className={cn(
+                          "rounded-lg w-full h-52 object-cover",
+                          category.image === "box nutricional.jpg"
+                            ? "object-center"
+                            : "object-top"
+                        )}
                       />
                       <div className="absolute inset-0 bg-color1/20 rounded-lg group-hover:bg-color1/30 transition-colors" />
                     </div>
@@ -173,7 +182,7 @@ export default function HomePage() {
                       </h3>
                     </div>
                     <p className="text-sm text-gray-600">
-                      {category.count} productos
+                      {category.countText}
                     </p>
                   </CardContent>
                 </Card>
@@ -207,7 +216,7 @@ export default function HomePage() {
                       alt={product.name}
                       width={300}
                       height={300}
-                      className="w-full h-48 object-cover rounded-t-lg"
+                      className="w-full p-4 h-48 object-contain rounded-t-lg"
                     />
                     <Badge
                       className={`absolute top-2 left-2 ${
@@ -217,7 +226,7 @@ export default function HomePage() {
                           ? "bg-blue-500"
                           : product.badge === "Oferta"
                           ? "bg-red-500"
-                          : "bg-green-500"
+                          : "bg-color2"
                       }`}
                     >
                       {product.badge}
@@ -231,7 +240,7 @@ export default function HomePage() {
                   <CardTitle className="text-lg mb-2 line-clamp-2">
                     {product.name}
                   </CardTitle>
-                  <div className="flex items-center mb-2">
+                  {/* <div className="flex items-center mb-2">
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <Star
@@ -247,22 +256,22 @@ export default function HomePage() {
                     <span className="text-sm text-gray-600 ml-2">
                       {product.rating} ({product.reviews})
                     </span>
-                  </div>
+                  </div> */}
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-2xl font-bold text-color1">
-                        ${product.price}
+                        ${product.price.toLocaleString("es-CL")}
                       </span>
-                      {product.originalPrice && (
+                      {/* {product.originalPrice && (
                         <span className="text-sm text-gray-500 line-through ml-2">
                           ${product.originalPrice}
                         </span>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </CardContent>
                 <CardFooter className="p-4 pt-0">
-                  <Button className="w-full bg-color1 hover:bg-green-700">
+                  <Button className="w-full bg-color1 hover:bg-color2">
                     <ShoppingCart className="mr-2 h-4 w-4" />
                     Agregar al Carrito
                   </Button>

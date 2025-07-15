@@ -8,10 +8,9 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NutriData - Equipos y Recursos para Nutricionistas",
+  title: "NutriData",
   description:
-    "Tu tienda especializada en equipos de medición antropométrica, cursos ISAK y recursos profesionales para nutricionistas.",
-  generator: "v0.dev"
+    "Tu tienda especializada en equipos de medición antropométrica, cursos ISAK y recursos profesionales para nutricionistas."
 };
 
 export default function RootLayout({
