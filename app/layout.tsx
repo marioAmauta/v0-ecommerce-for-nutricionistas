@@ -10,7 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "NutriData",
   description:
-    "Tu tienda especializada en equipos de medición antropométrica, cursos ISAK y recursos profesionales para nutricionistas."
+    "Tu tienda especializada en equipos de medición antropométrica, cursos ISAK y recursos profesionales para nutricionistas.",
+    generator: 'v0.dev'
 };
 
 export default function RootLayout({
