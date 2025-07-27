@@ -23,7 +23,7 @@ export default defineConfig([
         {
           newlinesBetween: "always",
           groups: [
-            ["/^next/", "module"],
+            "module",
             "/^@/styles/",
             "/^@/app/",
             "/^@/api/",
