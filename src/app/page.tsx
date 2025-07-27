@@ -2,6 +2,7 @@ import { ShoppingCart, Users, Container, Calculator, Ruler, BookOpen } from "luc
 import Image from "next/image";
 import Link from "next/link";
 
+import { AppRoutes } from "@/lib/app-routes";
 import { cn } from "@/lib/utils";
 
 import { Badge } from "@/components/ui/badge";
@@ -110,7 +111,7 @@ export default function HomePage() {
                   <ShoppingCart className="ml-2 h-5 w-5" />
                 </Button>
                 <Link
-                  href="/iniciar-sesion"
+                  href={AppRoutes.loginPage}
                   className={cn(
                     buttonVariants({
                       size: "lg",

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import type React from "react";
 
+import { AppRoutes } from "@/lib/app-routes";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -124,7 +126,7 @@ export default function LoginPage() {
                     Recordarme
                   </label>
                 </div>
-                <Link href="/recuperar-contrasena" className="text-sm text-color1 hover:text-color2">
+                <Link href={AppRoutes.resetPasswordPage} className="text-sm text-color1 hover:text-color2">
                   ¿Olvidaste tu contraseña?
                 </Link>
               </div>
@@ -138,7 +140,7 @@ export default function LoginPage() {
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm text-gray-600">
               ¿No tienes una cuenta?{" "}
-              <Link href="/registro" className="font-medium text-color1 hover:text-color2">
+              <Link href={AppRoutes.registerPage} className="font-medium text-color1 hover:text-color2">
                 Regístrate aquí
               </Link>
             </div>
@@ -146,11 +148,11 @@ export default function LoginPage() {
             <div className="text-center">
               <p className="text-xs text-gray-500">
                 Al iniciar sesión, aceptas nuestros{" "}
-                <Link href="/terms" className="text-color1 hover:underline">
+                <Link href={AppRoutes.termsPage} className="text-color1 hover:underline">
                   Términos de Servicio
                 </Link>{" "}
                 y{" "}
-                <Link href="/privacy" className="text-color1 hover:underline">
+                <Link href={AppRoutes.privacyPage} className="text-color1 hover:underline">
                   Política de Privacidad
                 </Link>
               </p>

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import type React from "react";
 
+import { AppRoutes } from "@/lib/app-routes";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -309,11 +311,11 @@ export default function RegisterPage() {
                   />
                   <label htmlFor="terms" className="text-sm leading-relaxed text-gray-600">
                     Acepto los{" "}
-                    <Link href="/terms" className="text-color1 hover:underline">
+                    <Link href={AppRoutes.termsPage} className="text-color1 hover:underline">
                       Términos de Servicio
                     </Link>{" "}
                     y la{" "}
-                    <Link href="/privacy" className="text-color1 hover:underline">
+                    <Link href={AppRoutes.privacyPage} className="text-color1 hover:underline">
                       Política de Privacidad
                     </Link>{" "}
                     *
@@ -341,7 +343,7 @@ export default function RegisterPage() {
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm text-gray-600">
               ¿Ya tienes una cuenta?{" "}
-              <Link href="/iniciar-sesion" className="font-medium text-color1 hover:text-color2">
+              <Link href={AppRoutes.loginPage} className="font-medium text-color1 hover:text-color2">
                 Inicia sesión aquí
               </Link>
             </div>

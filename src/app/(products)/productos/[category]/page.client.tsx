@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { AppRoutes } from "@/lib/app-routes";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -120,7 +122,7 @@ export function CategoryPageClient({ category }: { category: string }) {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">
           <h1 className="mb-4 text-2xl font-bold">Categoría no encontrada</h1>
-          <Link href="/productos">
+          <Link href={AppRoutes.productsPage} className="text-color1 hover:text-color2">
             <Button>Ver todos los productos</Button>
           </Link>
         </div>
@@ -132,11 +134,11 @@ export function CategoryPageClient({ category }: { category: string }) {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-600">
-        <Link href="/" className="hover:text-color1">
+        <Link href={AppRoutes.homePage} className="hover:text-color1">
           Inicio
         </Link>{" "}
         /
-        <Link href="/productos" className="hover:text-color1">
+        <Link href={AppRoutes.productsPage} className="hover:text-color1">
           {" "}
           Productos
         </Link>{" "}
@@ -146,7 +148,7 @@ export function CategoryPageClient({ category }: { category: string }) {
       {/* Category Header */}
       <div className="mb-8">
         <div className="mb-4 flex items-center gap-4">
-          <Link href="/productos">
+          <Link href={AppRoutes.productsPage}>
             <Button variant="outline" size="sm">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Volver
@@ -281,7 +283,7 @@ export function CategoryPageClient({ category }: { category: string }) {
               >
                 <CardHeader className={`p-0 ${viewMode === "list" ? "w-48 flex-shrink-0" : ""}`}>
                   <div className="relative">
-                    <Link href={`/producto/${product.id}`}>
+                    <Link href={AppRoutes.productDetailPage({ id: product.id })}>
                       <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
@@ -312,7 +314,7 @@ export function CategoryPageClient({ category }: { category: string }) {
                 <div className={viewMode === "list" ? "flex flex-1 flex-col" : ""}>
                   <CardContent className="flex-1 p-4">
                     <p className="mb-1 text-sm text-gray-500">{product.brand}</p>
-                    <Link href={`/producto/${product.id}`}>
+                    <Link href={AppRoutes.productDetailPage({ id: product.id })}>
                       <CardTitle
                         className={`mb-2 ${viewMode === "list" ? "text-lg" : "text-lg"} line-clamp-2 cursor-pointer hover:text-color1`}
                       >

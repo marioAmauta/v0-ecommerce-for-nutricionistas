@@ -3,9 +3,9 @@
 import { ArrowLeft, Mail, CheckCircle, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import type React from "react";
 
-import { BrandLogo } from "@/components/brand-logo";
+import { AppRoutes } from "@/lib/app-routes";
+
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -46,10 +46,6 @@ export default function RecoverPasswordPage() {
     return (
       <div className="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
-          <div className="text-center">
-            <BrandLogo />
-          </div>
-
           <Card>
             <CardHeader className="text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
@@ -99,7 +95,7 @@ export default function RecoverPasswordPage() {
           </Card>
 
           <div className="text-center">
-            <Link href="/iniciar-sesion" className="inline-flex items-center text-sm text-color1 hover:text-color2">
+            <Link href={AppRoutes.loginPage} className="inline-flex items-center text-sm text-color1 hover:text-color2">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Volver al inicio de sesión
             </Link>
@@ -112,10 +108,6 @@ export default function RecoverPasswordPage() {
   return (
     <div className="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <BrandLogo />
-        </div>
-
         <Card>
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold">Recuperar Contraseña</CardTitle>
@@ -174,7 +166,7 @@ export default function RecoverPasswordPage() {
               </div>
 
               <div className="mt-6">
-                <Link href="/iniciar-sesion">
+                <Link href={AppRoutes.loginPage}>
                   <Button variant="outline" className="w-full bg-transparent">
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Volver al Inicio de Sesión
@@ -209,7 +201,7 @@ export default function RecoverPasswordPage() {
         <div className="text-center text-sm text-gray-500">
           <p>
             ¿No tienes cuenta?{" "}
-            <Link href="/registro" className="font-medium text-color1 hover:text-color2">
+            <Link href={AppRoutes.registerPage} className="font-medium text-color1 hover:text-color2">
               Regístrate aquí
             </Link>
           </p>
