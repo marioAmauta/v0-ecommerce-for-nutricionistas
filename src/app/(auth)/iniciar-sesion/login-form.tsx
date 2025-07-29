@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 
 import { AppRoutes } from "@/lib/app-routes";
@@ -15,7 +15,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 
 export function LoginForm() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const form = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
@@ -25,14 +25,12 @@ export function LoginForm() {
     }
   });
 
-  async function onSubmit(values: LoginSchemaType) {
-    console.log({ values });
+  function onSubmit(values: LoginSchemaType) {
+    startTransition(async () => {
+      console.log({ values });
 
-    setIsLoading(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsLoading(false);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    });
   }
 
   return (
@@ -67,13 +65,13 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <div className="flex justify-end">
+        <div className="flex justify-center sm:justify-end">
           <Link href={AppRoutes.resetPasswordPage} className="text-sm text-color1 hover:text-color2">
             ¿Olvidaste tu contraseña?
           </Link>
         </div>
-        <Button type="submit" className="w-full bg-color1 hover:bg-color2" disabled={isLoading}>
-          {isLoading ? "Iniciando sesión..." : "Iniciar Sesión"}
+        <Button type="submit" className="w-full bg-color1 hover:bg-color2" disabled={isPending}>
+          {isPending ? "Iniciando sesión..." : "Iniciar Sesión"}
         </Button>
       </form>
     </Form>

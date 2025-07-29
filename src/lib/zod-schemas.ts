@@ -11,6 +11,12 @@ export const loginSchema = z.object({
 
 export type LoginSchemaType = z.infer<typeof loginSchema>;
 
+export const forgotPasswordSchema = loginSchema.pick({
+  email: true
+});
+
+export type ForgotPasswordSchemaType = z.infer<typeof forgotPasswordSchema>;
+
 export const registerSchema = z
   .object({
     firstName: z.string().min(1, {
