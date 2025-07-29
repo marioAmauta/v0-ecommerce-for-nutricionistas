@@ -4,7 +4,7 @@ export class AppRoutes {
   // Authentication routes
   static readonly loginPage = "/iniciar-sesion";
   static readonly resetPasswordPage = "/recuperar-contrasena";
-  static readonly registerPage = "/registrarse";
+  static readonly registerPage = "/registro";
 
   // Product routes
   static readonly productsPage = "/productos";
